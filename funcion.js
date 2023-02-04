@@ -1,10 +1,14 @@
+var op1;
+var op2;
+var signo
+
 function init(){
     //Variables
     var resultado = document.getElementById("resultado");
-    var borrar = document.getElementById("borrar");
+    var Del = document.getElementById("borrar");
     var reset = document.getElementById("reset");
-    var on = document.getElementById("on");
-    var off = document.getElementById("off");
+    var punto = document.getElementById("punto");
+    
     var division = document.getElementById("division");
     var resta = document.getElementById("resta");
     var multiplicacion = document.getElementById("multiplicacion");
@@ -21,3 +25,105 @@ function init(){
     var siete = document.getElementById("siete");
     var ocho = document.getElementById("ocho");
     var nueve = document.getElementById("nueve");
+
+        // Eventos 
+        uno.onclick = function(e){
+            resultado.textContent = resultado.textContent + "1"
+        }
+        dos.onclick = function(e){
+            resultado.textContent = resultado.textContent + "2"
+        }
+        tres.onclick = function(e){
+            resultado.textContent = resultado.textContent + "3"
+        }
+        cuatro.onclick = function(e){
+            resultado.textContent = resultado.textContent + "4"
+        }
+        cinco.onclick = function(e){
+            resultado.textContent = resultado.textContent + "5"
+        }
+        seis.onclick = function(e){
+            resultado.textContent = resultado.textContent + "6"
+        }
+        siete.onclick = function(e){
+            resultado.textContent = resultado.textContent + "7"
+        }
+        ocho.onclick = function(e){
+            resultado.textContent = resultado.textContent + "8"
+        }
+        nueve.onclick = function(e){
+            resultado.textContent = resultado.textContent + "9"
+        }
+        cero.onclick = function(e){
+            resultado.textContent = resultado.textContent + "0"
+        }
+        dobleCERO.onclick = function(e){
+            resultado.textContent = resultado.textContent + "00"
+        }
+        punto.onclick = function(e){
+            resultado.textContent = resultado.textContent + "."
+        }
+
+        reset.onclick = function(e){
+            resetear();
+        }
+        suma.onclick = function(e){
+            op1 = resultado.textContent;
+            signo = "+";
+            limpiar();
+        }
+        resta.onclick = function(e){
+            op1 = resultado.textContent;
+            signo = "-";
+        }
+        multiplicacion.onclick = function(e){
+            op1 = resultado.textContent;
+            signo = "*";
+        }
+        division.onclick = function(e){
+            op1 = resultado.textContent;
+            signo = "/";
+        }
+        igual.onclick = function(e){
+            op2 = resultado.textContent;
+            resolver();
+        }
+
+        borrar.addEventListener("click", function() {
+            listafunc.remove();
+        })
+    }
+
+    function limpiar(){
+        resultado.textContent = "";
+    }
+
+    function resetear(){
+        resultado.textContent = "";
+        op1 = 0;
+        op2 = 0;
+        signo = "";
+    }
+
+    function resolver(){
+        var res = 0;
+        switch(signo){
+            case "+":
+                res = parseFloat(op1) + parseFloat(op2);
+                break;
+
+            case "-":
+                res = parseFloat(op1) - parseFloat(op2);
+                break;
+
+            case "*":
+                res = parseFloat(op1) * parseFloat(op2);
+                break;
+
+            case "/":
+                res = parseFloat(op1) / parseFloat(op2);
+                break;
+        }
+        resetear();
+        resultado.textContent = res;
+    }
