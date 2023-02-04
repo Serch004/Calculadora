@@ -8,7 +8,6 @@ function init(){
     var Del = document.getElementById("borrar");
     var reset = document.getElementById("reset");
     var punto = document.getElementById("punto");
-    
     var division = document.getElementById("division");
     var resta = document.getElementById("resta");
     var multiplicacion = document.getElementById("multiplicacion");
@@ -67,6 +66,9 @@ function init(){
         reset.onclick = function(e){
             resetear();
         }
+        Del.onclick = function(e){
+                borrar();
+        }
         suma.onclick = function(e){
             op1 = resultado.textContent;
             signo = "+";
@@ -75,23 +77,22 @@ function init(){
         resta.onclick = function(e){
             op1 = resultado.textContent;
             signo = "-";
+            limpiar();
         }
         multiplicacion.onclick = function(e){
             op1 = resultado.textContent;
             signo = "*";
+            limpiar();
         }
         division.onclick = function(e){
             op1 = resultado.textContent;
             signo = "/";
+            limpiar();
         }
         igual.onclick = function(e){
             op2 = resultado.textContent;
             resolver();
         }
-
-        borrar.addEventListener("click", function() {
-            listafunc.remove();
-        })
     }
 
     function limpiar(){
@@ -99,6 +100,13 @@ function init(){
     }
 
     function resetear(){
+        resultado.textContent = "";
+        op1 = 0;
+        op2 = 0;
+        signo = "";
+    }
+
+    function borrar(){
         resultado.textContent = "";
         op1 = 0;
         op2 = 0;
@@ -125,5 +133,8 @@ function init(){
                 break;
         }
         resetear();
+        resultado.textContent = res;
+
+        borrar();
         resultado.textContent = res;
     }
