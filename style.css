@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: aquamarine;
+    background: linear-gradient(to right,#26f706, #eaff05, #ff0000);
 }
 
 #titulo {
@@ -12,7 +12,7 @@ body {
     display: block;
     margin: auto;
     padding: 12px;
-    background-color: #045973;
+    background: linear-gradient(to right,#012c25, #290431);
     width: 375px;
     height: 550px;
     border-radius: 20px;
@@ -42,7 +42,7 @@ body {
     }
 
 .calculadora td button {
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     display: block;
     width: 70px;
@@ -67,7 +67,7 @@ body {
     font-size: 40px;
     width: 330px;
     height: 100px;
-    background-color: #e0f8e6;
+    background: #b9ffba;
     border-radius: 20px;
     justify-content: space-between;
     word-break: break-all;
